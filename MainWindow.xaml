@@ -1,0 +1,38 @@
+﻿<Window x:Class="ImageScaler.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ImageScaler"
+        mc:Ignorable="d"
+        Title="Image Scaler by Visal Chhourm" Height="450" Width="730" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+        </Grid.ColumnDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
+            <Label Margin="0 0 10 0">Resize by</Label>
+            <ComboBox SelectedIndex="0" x:Name="scaleOptionInput">
+                <ComboBoxItem>Width</ComboBoxItem>
+                <ComboBoxItem>Height</ComboBoxItem>
+                <ComboBoxItem>Scale Up</ComboBoxItem>
+                <ComboBoxItem>Scale Down</ComboBoxItem>
+            </ComboBox>
+            <Label Margin="0 0 10 0">New Size</Label>
+            <TextBox Margin="0 0 10 0" Width="83" InputScope="Number" x:Name="scaleSizeInput">256</TextBox>
+            <Button Margin="0 0 10 0" x:Name="btnSelectImages" Click="btnSelectImages_Click">Add Images</Button>
+            <Button Margin="0 0 50 0" x:Name="btnClear" Click="btnClear_Click">Clear Selected</Button>
+            <Button x:Name="btnScaleImage" Click="btnScaleImage_Click">Scale Images</Button>
+        </StackPanel>
+        <ListView Grid.Row="1" Grid.Column="1" x:Name="listview" AllowDrop="True" Drop="listview_Drop">
+        </ListView>
+    </Grid>
+</Window>
